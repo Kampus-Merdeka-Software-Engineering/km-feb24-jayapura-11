@@ -1,0 +1,325 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+
+#logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Aturan CSS untuk navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px; /* Mengatur jarak antara setiap item menu */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Menghilangkan margin kiri pada item pertama */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffcd00;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover:before {
+    width: 100%;
+}
+
+
+
+/* Hero Section Styles */
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-text h1{
+    margin: auto;
+    max-width: 430px;
+    margin-bottom: 20px;
+}
+.hero-text p {
+    margin-bottom: 20px;
+}
+
+.filter-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#hero {
+    position: relative;
+    height: 600px;
+    background-image: linear-gradient(to bottom, rgba(5 , 5, 5, 0.5), rgba(0,0,0,0.7)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Menjadikan konten di dalam section berada dalam satu kolom */
+    justify-content: center; /* Mengatur konten vertikal ke tengah */
+}
+
+.fade,
+.hero-text,
+.filter-search {
+    margin-top: 20px; /* Gabungkan margin-top ke dalam satu aturan */
+}
+
+.hero-text h1 {
+    font-size: 36px;
+}
+
+.hero-text p {
+    font-size: 18px;
+}
+
+.filter-search input[type="text"],
+.filter-search button,
+.filter-search select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.filter-search input[type="text"] {
+    width: 100%; /* Menggunakan persentase untuk lebar input */
+    max-width: 600px; /* Membatasi lebar maksimum */
+}
+
+.filter-search select {
+    width: 30%; /* Menggunakan persentase untuk lebar select */
+    max-width: 100px; /* Membatasi lebar maksimum */
+}
+
+.filter-search button {
+    background-color: #ffcd00;
+    color: #222;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-search button:hover {
+    background-color: #ffc107;
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Menempatkan dropdown di sebelah kanan */
+    margin-top: 20px;
+}
+
+.dropdown {
+    margin-left: 10px; /* Jarak antara tombol prev/next dengan dropdown */
+}
+
+.dropdown select {
+    width: 150px; /* Ubah lebar dropdown sesuai kebutuhan */
+    padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
+}
+
+.dropdown select:hover,
+.dropdown select:focus {
+    border-color: #aaa;
+}
+
+#prevBtn,
+#nextBtn {
+    padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+    border-radius: 5px;
+    background-color: #ffcd00;
+    color: #222;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+    background-color: #ffc107;
+}
+.chart-container .new-image {
+    max-width: 800px;
+    margin: 20px auto; /* Untuk membuat gambar berada di tengah */
+    display: flex; /* Untuk memastikan gambar muncul sebagai blok */
+}
+
+
+/* Chart Container Styles */
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.chart-images {
+    display: none;
+}
+
+.chart-images.active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chart-images img {
+    width: calc(20% - 20px);
+    margin: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcd00;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-legal p {
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .chart-images img {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Navbar saat di atas layar dan responsif */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+    #nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px; /* Sesuaikan jarak sesuai kebutuhan */
+        left: 0;
+        background-color: #222;
+        width: 100%;
+        text-align: center;
+    }
+    #nav-menu.active {
+        display: block;
+    }
+    #nav-menu li {
+        margin: 10px 0;
+    }
+}
+
+/* Menambahkan media query untuk menyesuaikan lebar pada layar yang lebih kecil */
+@media screen and (max-width: 768px) {
+    .filter-search input[type="text"],
+    .filter-search select {
+        width: 100%; /* Menggunakan persentase untuk lebar pada layar yang lebih kecil */
+        max-width: none; /* Menghapus batasan lebar maksimum */
+    }
+}
