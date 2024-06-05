@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Building Sales Data in NYC</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+
+    <!-- DataTables JS -->
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+    ></script>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="flex container">
+        <a id="logo" href="#">NYCProperty</a>
+        <button id="nav-toggle" class="hamburger-menu">
+          <span class="strip"></span>
+          <span class="strip"></span>
+          <span class="strip"></span>
+        </button>
+        <nav id="nav-menu" class="active">
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li>
+              <a href="http://www.google.com" target="_blank">Properties</a>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="hero">
+      <div class="fade"></div>
+      <div class="hero-text">
+        <h1>Building Sales Data in New York City</h1>
+        <p>
+          "For transparency among the people who already trust our company, we
+          share our property sales data in New York City. We hope that with this
+          website, people will have more confidence in our company."
+        </p>
+      </div>
+    </section>
+
+    <div class="dropdown-container">
+      <button id="prevBtn">&lt;</button>
+      <div class="dropdown">
+        <select id="chartDropdown">
+          <option value="default" selected>Pilih di sini</option>
+          <option value="filterbcc1">Building Class Category 1</option>
+          <option value="filterbcc2">Building Class Category 2</option>
+          <option value="filterbcc4">Building Class Category 4</option>
+          <option value="filterbcc21">Building Class Category 21</option>
+          <option value="filterbcc22">Building Class Category 22</option>
+        </select>
+      </div>
+      <button id="nextBtn">&gt;</button>
+    </div>
+
+    <div id="default" class="chart-images active">
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Penjualan Total Unit Property</h2>
+          <canvas id="asptut"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>
+            Perbandingan Total Unit Terjual dan Harga Jual Berdasarkan Tahun di
+            Region V
+          </h2>
+          <canvas id="asptut_yb"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Total Unit Penjualan Properti di Region V</h2>
+          <canvas id="asptut_eza4"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Komposisi Properti Antar Tahun pada Region V</h2>
+          <canvas id="prop_yb"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Komposisi Properti di Region V &lt;2010</h2>
+          <canvas id="prop_eza4a"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Komposisi Properti di Region V &gt;2010</h2>
+          <canvas id="prop_eza4b"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterbcc1" class="chart-images active">
+      <h1>Building Class Category 1</h1>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &lt;2010</h2>
+          <canvas id="BCC1A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &gt;2010</h2>
+          <canvas id="BCC1B"></canvas>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Property &lt;2010</h2>
+          <canvas id="Prop1A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Property &gt;2010</h2>
+          <canvas id="Prop1B"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterbcc2" class="chart-images active">
+      <h1>Building Class Category 2</h1>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &lt;2010</h2>
+          <canvas id="BCC2A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &gt;2010</h2>
+          <canvas id="BCC2B"></canvas>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Property &lt;2010</h2>
+          <canvas id="Prop2A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Property &gt;2010</h2>
+          <canvas id="Prop2B"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterbcc4" class="chart-images active">
+      <h1>Building Class Category 4</h1>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &lt;2010</h2>
+          <canvas id="BCC4A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &gt;2010</h2>
+          <canvas id="BCC4B"></canvas>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Property &lt;2010</h2>
+          <canvas id="Prop4A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Property &gt;2010</h2>
+          <canvas id="Prop4B"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterbcc21" class="chart-images active">
+      <h1>Building Class Category 21</h1>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &lt;2010</h2>
+          <canvas id="BCC21A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &gt;2010</h2>
+          <canvas id="BCC21B"></canvas>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Property &lt;2010</h2>
+          <canvas id="Prop21A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Property &gt;2010</h2>
+          <canvas id="Prop21B"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterbcc22" class="chart-images active">
+      <h1>Building Class Category 22</h1>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &lt;2010</h2>
+          <canvas id="BCC22A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Sale Prices dan Total Unit Terjual &gt;2010</h2>
+          <canvas id="BCC22B"></canvas>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-container">
+          <h2>Property &lt;2010</h2>
+          <canvas id="Prop22A"></canvas>
+        </div>
+        <div class="chart-container">
+          <h2>Property &gt;2010</h2>
+          <canvas id="Prop22B"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <table id="table-properties">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>BOROUGH</th>
+          <th>BUILDING CLASS CATEGORY</th>
+          <th>BLOCK</th>
+          <th>LOT</th>
+          <th>RESIDENTIAL UNITS</th>
+          <th>COMMERCIAL UNITS</th>
+          <th>TOTAL UNITS</th>
+          <th>LAND AREA (SQFT)</th>
+          <th>GROSS SQUARE FEET</th>
+          <th>YEAR BUILT</th>
+          <th>SALE PRICE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be loaded here -->
+      </tbody>
+    </table>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Property Listings</a></li>
+            <li><a href="#">Agent Services</a></li>
+            <li><a href="#">Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">Email</a></li>
+            <li><a href="#">Phone</a></li>
+            <li><a href="#">Location</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; 2024 NYCProperty. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="charts.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

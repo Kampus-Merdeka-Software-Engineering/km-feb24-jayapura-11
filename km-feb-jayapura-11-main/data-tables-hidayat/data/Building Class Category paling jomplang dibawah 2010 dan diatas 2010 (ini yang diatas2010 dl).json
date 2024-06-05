@@ -1,0 +1,56 @@
+[
+  {
+    "Building Class Category": "",
+    "Total Unit Penjualan": "> 2010",
+    "Sale Prices (Avg)": "> 2010",
+    "Block": "> 2010",
+    "Lot": "> 2010",
+    "Luas Tanah": "> 2010",
+    "Luas Bangunan": "> 2010"
+  },
+  {
+    "Building Class Category": "01 ONE FAMILY DWELLINGS",
+    "Total Unit Penjualan": 301,
+    "Sale Prices (Avg)": "472,628",
+    "Block": 2839.54,
+    "Lot": 79.44,
+    "Luas Tanah": 3369.626667,
+    "Luas Bangunan": 1943.556667
+  },
+  {
+    "Building Class Category": "02 TWO FAMILY",
+    "Total Unit Penjualan": 354,
+    "Sale Prices (Avg)": "516,867",
+    "Block": 4828.186441,
+    "Lot": 72.5819209,
+    "Luas Tanah": 4365.514124,
+    "Luas Bangunan": 2185.231638
+  },
+  {
+    "Building Class Category": "04 TAX CLASS 1 CONDOS",
+    "Total Unit Penjualan": 33,
+    "Sale Prices (Avg)": "343,926",
+    "Block": 2876.484848,
+    "Lot": 1083.787879,
+    "Luas Tanah": 3711,
+    "Luas Bangunan": 1580
+  },
+  {
+    "Building Class Category": "21 OFFICE BUILDINGS",
+    "Total Unit Penjualan": 1,
+    "Sale Prices (Avg)": "701,395",
+    "Block": 7067,
+    "Lot": 120,
+    "Luas Tanah": 58397,
+    "Luas Bangunan": 23625
+  },
+  {
+    "Building Class Category": "22 STORE BUILDINGS",
+    "Total Unit Penjualan": 3,
+    "Sale Prices (Avg)": "1,227,662",
+    "Block": 1833,
+    "Lot": 7.5,
+    "Luas Tanah": 1422.5,
+    "Luas Bangunan": 1611
+  }
+]

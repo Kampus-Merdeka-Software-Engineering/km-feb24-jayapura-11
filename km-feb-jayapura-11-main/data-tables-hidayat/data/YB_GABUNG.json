@@ -1,0 +1,20 @@
+[
+  {
+    "Year_Build": "<2010",
+    "Total Unit Penjualan": 10281,
+    "Sale Prices": 515.259,
+    "Block": 3240.753468,
+    "Lot": 205.05091,
+    "Luas Tanah": 8166.46379,
+    "Luas Bangunan": 2172.783251
+  },
+  {
+    "Year_Build": "> 2010",
+    "Total Unit Penjualan": 735,
+    "Sale Prices": 603.911,
+    "Block": 3453.730561,
+    "Lot": 182.4195298,
+    "Luas Tanah": 3991.356884,
+    "Luas Bangunan": 2176.497288
+  }
+]
