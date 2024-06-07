@@ -218,14 +218,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var ctx = document.getElementById(elementId).getContext('2d');
   
     new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: regions,
             datasets: [
                 {
                     label: 'Block',
                     data: blockData,
-                    yAxisID: 'left-y-axis',
+                    type: 'line',
+                    yAxisID: 'right-y-axis',
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1
@@ -233,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     label: 'Lot',
                     data: lotData,
+                    type: 'line',
                     yAxisID: 'right-y-axis',
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
@@ -316,33 +318,32 @@ document.addEventListener('DOMContentLoaded', function () {
         var ctx_asptut_yb = document.getElementById('asptut_yb').getContext('2d');
         var ctx_prop_yb = document.getElementById('prop_yb').getContext('2d');
   
-        // Create new charts
+        // Define colors for each Year_Build label
+        const backgroundColorsTotalUnits = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'];
+        const borderColorsTotalUnits = ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'];
+        const backgroundColorsSalePrices = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'];
+        const borderColorsSalePrices = ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'];
+
+        // Create new chart
         var mixedChart1 = new Chart(ctx_asptut_yb, {
-            type: 'bar',
+            type: 'doughnut',
             data: {
                 labels: yb,
                 datasets: [{
                     label: 'Total Unit Penjualan',
                     data: tut_yb,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: backgroundColorsTotalUnits,
+                    borderColor: borderColorsTotalUnits,
                     borderWidth: 1,
-                    yAxisID: 'left-y-axis'
                 }, {
                     label: 'Sales Prices',
                     data: sp_yb,
-                    type: 'line',
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: backgroundColorsSalePrices,
+                    borderColor: borderColorsSalePrices,
                     borderWidth: 1,
-                    yAxisID: 'right-y-axis'
                 }]
             },
             options: {
-                scales: {
-                    'left-y-axis': { type: 'linear', position: 'left' },
-                    'right-y-axis': { type: 'linear', position: 'right', grid: { drawOnChartArea: false } }
-                }
             }
         });
   
