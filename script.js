@@ -1,96 +1,100 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdown = document.getElementById("chartDropdown");
-    const chartImages = document.querySelectorAll(".chart-images");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdown = document.getElementById('chartDropdown')
+  const chartImages = document.querySelectorAll('.chart-images')
+  const prevBtn = document.getElementById('prevBtn')
+  const nextBtn = document.getElementById('nextBtn')
+  const header = document.getElementById('header')
+  const hamburgerMenu = document.querySelector('.hamburger-menu')
+  const navMenu = document.querySelector('#nav-menu')
 
-    // Menangani perubahan dropdown
-    dropdown.addEventListener("change", function() {
-        currentIndex = dropdown.selectedIndex;
-        showChart(currentIndex);
-    });
+  let currentIndex = 0
+  let lastScrollTop = 0
+  const delta = 5
+  const navbarHeight = header.offsetHeight
 
-    // Tombol next
-    nextBtn.addEventListener("click", function() {
-        currentIndex = (currentIndex + 1) % chartImages.length;
-        dropdown.selectedIndex = currentIndex;
-        showChart(currentIndex);
-    });
+  // Chart navigation functions
+  function showChart(index) {
+    chartImages.forEach((chart, i) => {
+      chart.classList.toggle('active', i === index)
+    })
+  }
 
-    // Tombol previous
-    prevBtn.addEventListener("click", function() {
-        currentIndex = (currentIndex - 1 + chartImages.length) % chartImages.length;
-        dropdown.selectedIndex = currentIndex;
-        showChart(currentIndex);
-    });
+  function updateChartIndex(change) {
+    currentIndex =
+      (currentIndex + change + chartImages.length) % chartImages.length
+    dropdown.selectedIndex = currentIndex
+    showChart(currentIndex)
+  }
 
-    // Fungsi untuk menampilkan chart sesuai dengan index
-    function showChart(index) {
-        chartImages.forEach(function(chart, i) {
-            if (i === index) {
-                chart.classList.add("active");
-            } else {
-                chart.classList.remove("active");
-            }
-        });
-    }
-});
+  dropdown.addEventListener('change', () => {
+    currentIndex = dropdown.selectedIndex
+    showChart(currentIndex)
+  })
 
-document.addEventListener("DOMContentLoaded", function() {
-    const fileInput = document.getElementById("fileInput");
+  nextBtn.addEventListener('click', () => updateChartIndex(1))
+  prevBtn.addEventListener('click', () => updateChartIndex(-1))
 
-    fileInput.addEventListener("change", function(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
+  // Header scroll and menu toggle
+  window.addEventListener(
+    'scroll',
+    function () {
+      let scrollTop = window.pageYOffset
 
-        reader.onload = function(event) {
-            const content = event.target.result;
-            processData(content);
-        };
+      if (Math.abs(lastScrollTop - scrollTop) <= delta) return
 
-        reader.readAsText(file);
-    });
-
-    function processData(content) {
-        // Memproses data CSV
-        const rows = content.split('\n');
-        const data = rows.map(row => row.split(','));
-
-        // Menampilkan data di konsol
-        console.log(data);
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const header = document.getElementById("header");
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('#nav-menu');
-
-    let lastScrollTop = 0;
-    const delta = 5;
-    const navbarHeight = header.offsetHeight;
-
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset;
-
-        if (Math.abs(lastScrollTop - scrollTop) <= delta)
-            return;
-
-        if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
-            // Scroll Down
-            header.style.top = `-${navbarHeight}px`;
-            hamburgerMenu.style.display = 'flex';
-            navMenu.classList.remove('active');
-        } else {
-            // Scroll Up
-            if (scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
-                header.style.top = '0';
-            }
-            hamburgerMenu.style.display = 'none';
+      if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
+        // Scroll Down
+        header.style.top = `-${navbarHeight}px`
+        hamburgerMenu.style.display = 'flex'
+        navMenu.classList.remove('active')
+      } else {
+        // Scroll Up
+        if (
+          scrollTop + window.innerHeight <
+          document.documentElement.scrollHeight
+        ) {
+          header.style.top = '0'
         }
+        hamburgerMenu.style.display = 'none'
+      }
 
-        lastScrollTop = scrollTop;
-    }, false);
-});
+      lastScrollTop = scrollTop
+    },
+    false
+  )
+
+  hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active')
+  })
+
+  // Data table initialization
+  $(document).ready(function () {
+    $('#table-properties').DataTable({
+      ajax: {
+        url: 'data.json',
+        dataSrc: '',
+      },
+      pageLength: 10,
+      columns: [
+        {
+          data: null,
+          title: 'No.',
+          render: (data, type, row, meta) =>
+            meta.row + meta.settings._iDisplayStart + 1,
+        },
+        { data: 'BOROUGH' },
+        { data: 'BUILDING CLASS CATEGORY' },
+        { data: 'BLOCK' },
+        { data: 'LOT' },
+        { data: 'RESIDENTIAL UNITS' },
+        { data: 'COMMERCIAL UNITS' },
+        { data: 'TOTAL UNITS' },
+        { data: 'LUAS TANAH (KAKI)' },
+        { data: 'UKURAN LUAS SELURUH BANGUNAN' },
+        { data: 'YEAR BUILT' },
+        { data: 'SALE PRICE' },
+      ],
+    })
+  })
+})
 
