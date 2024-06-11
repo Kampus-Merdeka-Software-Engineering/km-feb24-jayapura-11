@@ -305,14 +305,14 @@ nav ul li a:hover {
     /* Tambahkan garis untuk sel dan batas */
     #data-table {
         border-collapse: collapse;
-        width: 80%; /* Ubah lebar tabel sesuai kebutuhan Anda */
-        margin: 0 auto; /* Untuk membuat tabel berada di tengah */
+        width: 80%; 
+        margin: 0 auto; 
     }
 
     #data-table th, #data-table td {
         border: 1px solid #dddddd;
-        padding: 6px; /* Ubah padding agar lebih kecil */
-        font-size: 12px; /* Ubah ukuran font agar lebih kecil */
+        padding: 6px; 
+        font-size: 12px; 
         text-align: left;
     }
 
