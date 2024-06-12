@@ -98,3 +98,269 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
+//scorecard
+let chartConfig = {
+  layout: '2x3',
+  graphset: [
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '11.016',
+        },
+        title: {
+          text: 'Total Unit Terjual',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '4728',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '3922',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '514',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '418',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '82',
+          },
+        ],
+        icon: {
+          backgroundScale: 0.95,
+          backgroundColor: '#8FBC8F',
+        },
+        'max-value': 1000,
+        'bar-width': '10px',
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '521.087',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '1049256',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '1217144',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '762094',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '1612662',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '4001395',
+          },
+        ],
+        icon: {
+          backgroundColor: '#E9967A',
+          backgroundScale: 0.75,
+          borderColor: '#ff7200',
+        },
+        title: {
+          text: 'Sale Prices',
+        },
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '4349.28',
+        },
+        title: {
+          text: 'Luas Bangunan',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '1527399221',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '2113860938',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '3160',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '3017984506',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '4738510111',
+          },
+        ],
+        icon: {
+          backgroundScale: 0.95,
+          backgroundColor: '#DDA0DD',
+        },
+        'max-value': 1000,
+        'bar-width': '10px',
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '4.808.003.263',
+        },
+        title: {
+          text: 'Luas Tanah',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '3373536023',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '4369943431',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '7422',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '8255361',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '8979343',
+          },
+        ],
+        icon: {
+          backgroundScale: 0.95,
+        },
+        'max-value': 1000,
+        'bar-width': '10px',
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '6.694.484.029',
+        },
+        title: {
+          text: 'Block',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '3498540166',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '7984570057',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '6080050337',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '2507396570',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '283034094',
+          },
+        ],
+        icon: {
+          backgroundScale: 0.95,
+          backgroundColor: '#D2B48C',
+        },
+        'max-value': 1000,
+        'bar-width': '10px',
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+    {
+      type: 'scorecard',
+      options: {
+        value: {
+          text: '1.844.700.389',
+        },
+        title: {
+          text: 'Lot',
+        },
+        bars: [
+          {
+            text: '01 One Family Dwellings',
+            value: '8633561625',
+          },
+          {
+            text: '02 Two Family Dwellings',
+            value: '8180847458',
+          },
+          {
+            text: '04 Tax Class 1 Condos',
+            value: '1221179563',
+          },
+          {
+            text: '22 Store Buildings',
+            value: '4913157902',
+          },
+          {
+            text: '21 Office Buildings',
+            value: '283027147',
+          },
+        ],
+        icon: {
+          backgroundScale: 0.95,
+          backgroundColor: '#dcdcdc',
+        },
+        'max-value': 1000,
+        'bar-width': '10px',
+      },
+      plotarea: {
+        margin: '10px',
+      },
+    },
+  ],
+};
+
+zingchart.render({
+  id: 'myChart',
+  data: chartConfig,
+  height: '100%',
+  width: '100%',
+  modules: 'scorecard',
+});
