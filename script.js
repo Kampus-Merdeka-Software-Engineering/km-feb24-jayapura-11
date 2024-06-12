@@ -1,4 +1,121 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const dropdown = document.getElementById('chartDropdown');
+  const chartImages = document.querySelectorAll('.chart-images');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const header = document.getElementById('header');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const navMenu = document.querySelector('#nav-menu');
+
+  let currentIndex = 0;
+  let lastScrollTop = 0;
+  const delta = 5;
+  const navbarHeight = header.offsetHeight;
+
+  // Chart navigation functions
+  function showChart(index) {
+    chartImages.forEach((chart, i) => {
+      chart.classList.toggle('active', i === index);
+    });
+  }
+
+  function updateChartIndex(change) {
+    currentIndex = (currentIndex + change + chartImages.length) % chartImages.length;
+    dropdown.selectedIndex = currentIndex;
+    showChart(currentIndex);
+  }
+
+  dropdown.addEventListener('change', () => {
+    currentIndex = dropdown.selectedIndex;
+    showChart(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => updateChartIndex(1));
+  prevBtn.addEventListener('click', () => updateChartIndex(-1));
+
+  // Header scroll and menu toggle
+  window.addEventListener(
+    'scroll',
+    function () {
+      let scrollTop = window.pageYOffset;
+
+      if (Math.abs(lastScrollTop - scrollTop) <= delta) return;
+
+      if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
+        // Scroll Down
+        header.style.top = `-${navbarHeight}px`;
+        hamburgerMenu.style.display = 'flex';
+        navMenu.classList.remove('active');
+        // Reduce the width of the navigation menu
+        navMenu.style.width = 'calc(100% - 100px)'; // Adjust the width reduction according to your preference
+      } else {
+        // Scroll Up
+        if (scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
+          header.style.top = '0';
+        }
+        hamburgerMenu.style.display = 'none';
+        // Restore the width of the navigation menu
+        navMenu.style.width = '100%';
+      }
+
+      lastScrollTop = scrollTop;
+    },
+    false
+  );
+
+  hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('header');
+  const navbarHeight = header.offsetHeight;
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+          // Scroll down
+          if (scrollTop > navbarHeight) {
+              header.classList.add('scrolled');
+          }
+      } else {
+          // Scroll up
+          if (scrollTop <= navbarHeight) {
+              header.classList.remove('scrolled');
+          }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('header');
+  const navbarHeight = header.offsetHeight;
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+          // Scroll down
+          if (scrollTop > navbarHeight) {
+              header.classList.add('scrolled');
+          }
+      } else {
+          // Scroll up
+          if (scrollTop <= navbarHeight) {
+              header.classList.remove('scrolled');
+          }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
   const dropdown = document.getElementById('chartDropdown')
   const chartImages = document.querySelectorAll('.chart-images')
   const prevBtn = document.getElementById('prevBtn')

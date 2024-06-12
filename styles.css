@@ -1,35 +1,41 @@
-    /* TEST TESTET*/   
-   /* Reset CSS */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-    }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
+/* Header Styles */
 /* Header Styles */
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #333;
-    color: #fff;
     padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Make header background transparent */
+    border-bottom: 2px solid #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    transition: height 0.3s ease; /* Add transition effect for height change */
 }
-
+#header.scrolled {
+    height: 60%; /* Set the desired width */
+    transition: width 0.3s ease; /* Add transition effect */
+    background-color: #5d5c5c;
+}
 #logo {
     font-size: 35px;
     font-weight: bold;
@@ -38,19 +44,13 @@ header {
     font-family: 'Montserrat', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    margin-bottom: 10px; /* Add space between logo and menu */
 }
 
-#logo:hover {
-    color: #ffcd00;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-}
-
-/* Aturan CSS untuk navbar */
 nav {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 20px; /* Memberi ruang di kanan */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
 }
 
 nav ul {
@@ -61,8 +61,9 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 30px; /* Mengatur jarak antara setiap item menu */
+    margin: 17px; /* Adjust spacing between menu items */
 }
+
 
 nav ul li a {
     text-decoration: none;
@@ -75,6 +76,7 @@ nav ul li a {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    background-color: transparent; /* Make background transparent */
 }
 
 nav ul li a:before {
@@ -120,7 +122,7 @@ nav ul li a:hover {
         align-items: center;
         display: none;
         width: 100%;
-        background-color: #333;
+        background-color: rgba(51, 51, 51, 0.9); /* Adjust for mobile */
         padding-top: 10px;
     }
 
@@ -132,49 +134,19 @@ nav ul li a:hover {
         display: block;
     }
 
-    .hamburger-menu.active .strip:nth-child(1) {
+    .hamburger-menu.active .strip:nth-child{
         transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger-menu.active .strip:nth-child(2) {
-        opacity: 0;
     }
 
     .hamburger-menu.active .strip:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-
+}   
     nav ul.active {
         display: flex;
     }
-}
-
-
+    
     /* Hero Section Styles */
-    .hero-text {
-        max-width: 600px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hero-text h1 {
-        margin: auto;
-        max-width: 430px;
-        margin-bottom: 20px;
-    }
-
-    .hero-text p {
-        margin-bottom: 20px;
-    }
-
-    .filter-search {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
     #hero {
         position: relative;
         height: 768px;
@@ -186,21 +158,34 @@ nav ul li a:hover {
         display: flex;
         flex-direction: column; /* Menjadikan konten di dalam section berada dalam satu kolom */
         justify-content: center; /* Mengatur konten vertikal ke tengah */
+        margin-top: -180px; /* Adjust to overlap with header */
+        z-index: -1; /* Ensure hero is behind header */
     }
-
-    .fade,
-    .hero-text,
-    .filter-search {
-        margin-top: 20px; /* Gabungkan margin-top ke dalam satu aturan */
+    
+    .hero-text {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
     }
-
+    
     .hero-text h1 {
-        font-size: 36px;
+        margin: auto;
+        max-width: 430px;
+        margin-bottom: 20px;
     }
-
+    
     .hero-text p {
-        font-size: 18px;
+        margin-bottom: 20px;
     }
+    
+    .filter-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
 
 
     /* Dropdown Styles */
@@ -435,6 +420,7 @@ nav ul li a:hover {
 table {
     max-width: 99%;
     border-collapse: collapse;
+    margin-bottom: 100px;
 }
 
 th, td {
@@ -538,3 +524,84 @@ tr:nth-child(even) {
         max-width: 100%;
     }
 }
+
+/* Team Profile Cards */
+
+    .team-section {
+        padding: 40px 0;
+        background-color: #f9f9f9;
+        margin-top: 100px;
+    }
+    #team-section h2 {
+        text-align: center;
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        margin: 20px;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .card-description {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #666;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .social-link {
+        background-color: #f0f0f0;
+        border-radius: 50%;
+        padding: 8px;
+        transition: background-color 0.3s;
+    }
+    
+    .social-link:hover {
+        background-color: #ddd;
+    }
+    
+    .social-link i {
+        font-size: 24px;
+        color: #666;
+    }
