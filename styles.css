@@ -260,6 +260,7 @@ nav ul li a:hover {
     /* Chart Container Styles */
     .chart-container {
         display: flex;
+        padding: auto;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 20px;
@@ -446,7 +447,7 @@ tr:nth-child(even) {
 
 .chart--container {
     margin: auto;
-    min-height: 150px;
+    min-height: 200px;
     width: 90%;
     height: 900%;
     margin-bottom: 50px;
