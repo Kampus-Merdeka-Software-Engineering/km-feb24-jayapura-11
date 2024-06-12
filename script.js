@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
+
 //scorecard
 let chartConfig = {
   layout: '2x3',

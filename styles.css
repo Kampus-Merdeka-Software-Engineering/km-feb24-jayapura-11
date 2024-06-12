@@ -220,11 +220,11 @@ nav ul li a:hover {
     }
 
     .dropdown select {
-        width: 150px; /* Ubah lebar dropdown sesuai kebutuhan */
+        width: 210px; /* Ubah lebar dropdown sesuai kebutuhan */
         padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
-        border: 1px solid #ccc;
+        border: 1px solid #050505;
         border-radius: 5px;
-        background-color: #fff;
+        background-color: #fffefd;
         outline: none;
         transition: border-color 0.3s ease;
         font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
@@ -232,15 +232,15 @@ nav ul li a:hover {
 
     .dropdown select:hover,
     .dropdown select:focus {
-        border-color: #ffc107;
+        border-color: #111110;
     }
 
     #prevBtn,
     #nextBtn {
         padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
         border-radius: 5px;
-        background-color: #6a6a69;
-        color: #e4e2de;
+        background-color: #ffc107;
+        color: #0d0d0d;
         cursor: pointer;
         transition: background-color 0.3s ease;
         font-size: 14px; /* Sesuaikan ukuran font sesuai kebutuhan */
@@ -248,13 +248,7 @@ nav ul li a:hover {
 
     #prevBtn:hover,
     #nextBtn:hover {
-        background-color: #ffc107;
-    }
-
-    .chart-container .new-image {
-        max-width: 800px;
-        margin: 40px auto; /* Untuk membuat gambar berada di tengah */
-        display: flex; /* Untuk memastikan gambar muncul sebagai blok */
+        background-color: #78cae8;
     }
 
     /* Chart Container Styles */
@@ -280,17 +274,29 @@ nav ul li a:hover {
         width: calc(20% - 20px);
         margin: 10px;
     }
-    .chart-row {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-      .chart-container {
-        flex: 1 1 calc(50% - 40px); 
-        margin: 20px;
-        max-width: 600px; /* Optional: control max size of the charts */
-      }
+/* Add transitions for the .chart-row */
+.chart-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When .chart-row is inside an active .chart-images */
+.chart-images.active .chart-row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Existing .chart-container styles */
+.chart-container {
+    flex: 1 1 calc(50% - 40px); 
+    margin: 20px;
+    max-width: 600px; /* Optional: control max size of the charts */
+}
     /* Tambahkan garis untuk sel dan batas */
     #data-table {
         border-collapse: collapse;
