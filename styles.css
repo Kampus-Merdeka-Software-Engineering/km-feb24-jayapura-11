@@ -114,7 +114,7 @@ nav ul li a:hover {
     transition: all 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     nav ul {
         flex-direction: column;
         align-items: center;
