@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hamburgerMenu.style.display = 'flex';
         navMenu.classList.remove('active');
         // Reduce the width of the navigation menu
-        navMenu.style.width = 'calc(100% - 100px)'; // Adjust the width reduction according to your preference
+        navMenu.style.width = 'calc(80% - 90px)'; // Adjust the width reduction according to your preference
       } else {
         // Scroll Up
         if (scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         hamburgerMenu.style.display = 'none';
         // Restore the width of the navigation menu
-        navMenu.style.width = '100%';
+        navMenu.style.width = '60%';
       }
 
       lastScrollTop = scrollTop;
