@@ -229,7 +229,7 @@ nav ul li a:hover {
     #nextBtn {
         padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
         border-radius: 5px;
-        background-color: #ffc107;
+        background-color: rgba(240, 119, 153, 0.9);
         color: #0d0d0d;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -423,11 +423,10 @@ nav ul li a:hover {
 
 /* Default table styles */
 table {
-    max-width: 99%;
+    max-width: 100%;
     border-collapse: collapse;
     margin-bottom: 100px;
 }
-
 th, td {
     padding: 8px;
     text-align: left;
@@ -438,7 +437,6 @@ th {
     background-color: #f2f2f2;
     font-weight: bold;
 }
-
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -560,8 +558,8 @@ tr:nth-child(even) {
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 250px;
-        margin: 20px;
+        width: 210px;
+        margin: 10px;
     }
     .card:hover {
         transform: scale(1.05);
